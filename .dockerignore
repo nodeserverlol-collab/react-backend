@@ -1,0 +1,26 @@
+# Python virtualenv committed to repo — not needed in Docker image
+backend/Lib/
+backend/Scripts/
+backend/pyvenv.cfg
+
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Build output
+frontend/dist/
+
+# Environment files
+.env
+**/.env
+
+# Git
+.git/
+.gitignore
