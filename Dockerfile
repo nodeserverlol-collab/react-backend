@@ -34,6 +34,7 @@ COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
 EXPOSE 8000
 
-# Run uvicorn from the backend directory so relative imports resolve correctly.
-# Railway injects $PORT at runtime; fall back to 8000 for local runs.
-CMD ["sh", "-c", "cd /app/backend && uvicorn back:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Set working directory so relative imports resolve correctly.
+WORKDIR /app/backend
+
+CMD ["uvicorn", "back:app", "--host", "0.0.0.0", "--port", "8000"]
